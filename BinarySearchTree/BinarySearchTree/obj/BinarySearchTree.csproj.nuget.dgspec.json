@@ -1,20 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "\\\\GMRDC1\\Folder Redirection\\Mihir.Takalkar\\Documents\\Visual Studio 2019\\Projects\\BinarySearchTree\\BinarySearchTree\\BinarySearchTree.csproj": {}
+    "\\\\GMRDC1\\Folder Redirection\\mihir.takalkar\\Documents\\Github\\BST\\BinarySearchTree\\BinarySearchTree\\BinarySearchTree\\BinarySearchTree.csproj": {}
   },
   "projects": {
-    "\\\\GMRDC1\\Folder Redirection\\Mihir.Takalkar\\Documents\\Visual Studio 2019\\Projects\\BinarySearchTree\\BinarySearchTree\\BinarySearchTree.csproj": {
+    "\\\\GMRDC1\\Folder Redirection\\mihir.takalkar\\Documents\\Github\\BST\\BinarySearchTree\\BinarySearchTree\\BinarySearchTree\\BinarySearchTree.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "\\\\GMRDC1\\Folder Redirection\\Mihir.Takalkar\\Documents\\Visual Studio 2019\\Projects\\BinarySearchTree\\BinarySearchTree\\BinarySearchTree.csproj",
+        "projectUniqueName": "\\\\GMRDC1\\Folder Redirection\\mihir.takalkar\\Documents\\Github\\BST\\BinarySearchTree\\BinarySearchTree\\BinarySearchTree\\BinarySearchTree.csproj",
         "projectName": "BinarySearchTree",
-        "projectPath": "\\\\GMRDC1\\Folder Redirection\\Mihir.Takalkar\\Documents\\Visual Studio 2019\\Projects\\BinarySearchTree\\BinarySearchTree\\BinarySearchTree.csproj",
+        "projectPath": "\\\\GMRDC1\\Folder Redirection\\mihir.takalkar\\Documents\\Github\\BST\\BinarySearchTree\\BinarySearchTree\\BinarySearchTree\\BinarySearchTree.csproj",
         "packagesPath": "C:\\Users\\mihir.takalkar\\.nuget\\packages\\",
-        "outputPath": "\\\\GMRDC1\\Folder Redirection\\Mihir.Takalkar\\Documents\\Visual Studio 2019\\Projects\\BinarySearchTree\\BinarySearchTree\\obj\\",
+        "outputPath": "\\\\GMRDC1\\Folder Redirection\\mihir.takalkar\\Documents\\Github\\BST\\BinarySearchTree\\BinarySearchTree\\BinarySearchTree\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
           "C:\\Users\\mihir.takalkar\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -56,7 +57,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

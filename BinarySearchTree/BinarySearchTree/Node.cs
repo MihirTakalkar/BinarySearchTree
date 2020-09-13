@@ -6,15 +6,14 @@ namespace BinarySearchTree
 {
     class Node<T>
     {
-        //parent
         public Node<T> Parent;
-        //leftchild
+     
         public Node<T> LeftChild;
-        //right child
+        
         public Node<T> RightChild;
-        //value
+        
         public T value;
-        //IsRightChild
+
         public bool IsRightChild
         {
             get
