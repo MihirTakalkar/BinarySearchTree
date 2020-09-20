@@ -30,7 +30,7 @@ namespace BinarySearchTree
             {
                 int compare = value.CompareTo(currentNode.value);
 
-                if (compare == 1)
+                if (compare >= 0)
                 {
                     if (currentNode.RightChild == null)
                     {
@@ -42,7 +42,7 @@ namespace BinarySearchTree
                     currentNode = currentNode.RightChild;
                 }
 
-                else if (compare == -1)
+                else
                 {
                     if (currentNode.LeftChild == null)
                     {
@@ -59,9 +59,86 @@ namespace BinarySearchTree
 
         }
 
-        public Node<T> Delete(T value)
+        public void PrintTree()
+        {
+            PrintTreePreOrder(root, Console.WindowWidth / 2, 0, 18);
+        }
+
+        private void PrintTreePreOrder(Node<T> node, int x, int y, int dx)
+        {
+            if (node == null)
+            {
+                return;
+            }
+            Console.SetCursorPosition(x, y);
+            Console.WriteLine(node.value);
+            PrintTreePreOrder(node.LeftChild, x - dx, y + 1, dx - 4);
+            PrintTreePreOrder(node.RightChild, x + dx, y + 1, dx - 4);
+
+        }
+
+        public bool Delete(T value)
         {
             Node<T> currentNode = Search(value);
+
+            if (currentNode == null)
+            {
+                return false;
+            }
+
+            //No Children
+            if(currentNode.LeftChild == null && currentNode.RightChild == null)
+            {
+                if (currentNode == root)    // if root c  
+                {
+                    root = null;
+                   
+                }
+
+                else if (currentNode.IsLeftChild) // if left child c 
+                {
+                    currentNode.Parent.LeftChild = null;
+                }
+
+                else // if right child c 
+                {
+                    currentNode.Parent.RightChild = null;
+                }
+
+                return true;
+            }
+
+            //1 Child
+            var temp = currentNode.Parent;
+            if (currentNode.IsLeftChild)
+            {
+                currentNode.Parent.LeftChild = null;   // delete yourself from parent
+
+                Node<T> child = currentNode.RightChild;  // figure out which child you have
+                if (child == null)
+                {
+                    child = currentNode.LeftChild;
+                }
+
+                child.Parent = currentNode.Parent;  // make the new connections
+                currentNode.Parent.LeftChild = child;
+            }
+
+            else
+            { 
+                currentNode.Parent.RightChild = null;   // delete yourself from parent
+
+                Node<T> child = currentNode.LeftChild;  // figure out which child you have
+                if (child == null)
+                {
+                    child = currentNode.RightChild;
+                }
+
+                child.Parent = currentNode.Parent;  // make the new connections
+                currentNode.Parent.RightChild = child;
+            }
+
+            return false;
         }
 
         public Node<T> Search(T val)

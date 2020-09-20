@@ -1,0 +1,13 @@
+\\GMRDC1\Folder Redirection\mihir.takalkar\Documents\Github\BST\BinarySearchTree\BinarySearchTree\BinarySearchTree\bin\Debug\netcoreapp3.1\BinarySearchTree.exe
+\\GMRDC1\Folder Redirection\mihir.takalkar\Documents\Github\BST\BinarySearchTree\BinarySearchTree\BinarySearchTree\bin\Debug\netcoreapp3.1\BinarySearchTree.deps.json
+\\GMRDC1\Folder Redirection\mihir.takalkar\Documents\Github\BST\BinarySearchTree\BinarySearchTree\BinarySearchTree\bin\Debug\netcoreapp3.1\BinarySearchTree.runtimeconfig.json
+\\GMRDC1\Folder Redirection\mihir.takalkar\Documents\Github\BST\BinarySearchTree\BinarySearchTree\BinarySearchTree\bin\Debug\netcoreapp3.1\BinarySearchTree.runtimeconfig.dev.json
+\\GMRDC1\Folder Redirection\mihir.takalkar\Documents\Github\BST\BinarySearchTree\BinarySearchTree\BinarySearchTree\bin\Debug\netcoreapp3.1\BinarySearchTree.dll
+\\GMRDC1\Folder Redirection\mihir.takalkar\Documents\Github\BST\BinarySearchTree\BinarySearchTree\BinarySearchTree\bin\Debug\netcoreapp3.1\BinarySearchTree.pdb
+\\GMRDC1\Folder Redirection\mihir.takalkar\Documents\Github\BST\BinarySearchTree\BinarySearchTree\BinarySearchTree\obj\Debug\netcoreapp3.1\BinarySearchTree.csprojAssemblyReference.cache
+\\GMRDC1\Folder Redirection\mihir.takalkar\Documents\Github\BST\BinarySearchTree\BinarySearchTree\BinarySearchTree\obj\Debug\netcoreapp3.1\BinarySearchTree.AssemblyInfoInputs.cache
+\\GMRDC1\Folder Redirection\mihir.takalkar\Documents\Github\BST\BinarySearchTree\BinarySearchTree\BinarySearchTree\obj\Debug\netcoreapp3.1\BinarySearchTree.AssemblyInfo.cs
+\\GMRDC1\Folder Redirection\mihir.takalkar\Documents\Github\BST\BinarySearchTree\BinarySearchTree\BinarySearchTree\obj\Debug\netcoreapp3.1\BinarySearchTree.csproj.CoreCompileInputs.cache
+\\GMRDC1\Folder Redirection\mihir.takalkar\Documents\Github\BST\BinarySearchTree\BinarySearchTree\BinarySearchTree\obj\Debug\netcoreapp3.1\BinarySearchTree.dll
+\\GMRDC1\Folder Redirection\mihir.takalkar\Documents\Github\BST\BinarySearchTree\BinarySearchTree\BinarySearchTree\obj\Debug\netcoreapp3.1\BinarySearchTree.pdb
+\\GMRDC1\Folder Redirection\mihir.takalkar\Documents\Github\BST\BinarySearchTree\BinarySearchTree\BinarySearchTree\obj\Debug\netcoreapp3.1\BinarySearchTree.genruntimeconfig.cache
