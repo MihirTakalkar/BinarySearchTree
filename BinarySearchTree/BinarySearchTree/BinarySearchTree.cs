@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.IO.MemoryMappedFiles;
 using System.Text;
 
 namespace BinarySearchTree
@@ -86,13 +88,26 @@ namespace BinarySearchTree
                 return false;
             }
 
+            //2 Children
+            if (currentNode.RightChild != null && currentNode.LeftChild != null)
+            {
+                var candidate = currentNode.LeftChild;
+                while (candidate.RightChild != null)
+                {
+                    candidate = candidate.RightChild;
+                }
+
+                currentNode.value = candidate.value;
+
+                currentNode = candidate;
+            }
+
             //No Children
-            if(currentNode.LeftChild == null && currentNode.RightChild == null)
+            if (currentNode.LeftChild == null && currentNode.RightChild == null)
             {
                 if (currentNode == root)    // if root c  
                 {
                     root = null;
-                   
                 }
 
                 else if (currentNode.IsLeftChild) // if left child c 
@@ -107,40 +122,87 @@ namespace BinarySearchTree
 
                 return true;
             }
-
-            //1 Child
-            var temp = currentNode.Parent;
-            if (currentNode.IsLeftChild)
-            {
-                currentNode.Parent.LeftChild = null;   // delete yourself from parent
-
-                Node<T> child = currentNode.RightChild;  // figure out which child you have
-                if (child == null)
-                {
-                    child = currentNode.LeftChild;
-                }
-
-                child.Parent = currentNode.Parent;  // make the new connections
-                currentNode.Parent.LeftChild = child;
-            }
-
             else
-            { 
-                currentNode.Parent.RightChild = null;   // delete yourself from parent
+            {
+                //1 Child
+                var parent = currentNode.Parent;
+                //var child = currentNode.LeftChild != null ? currentNode.LeftChild : currentNode.RightChild;
 
-                Node<T> child = currentNode.LeftChild;  // figure out which child you have
+                Node<T> child = currentNode.LeftChild;
+
                 if (child == null)
                 {
                     child = currentNode.RightChild;
                 }
 
-                child.Parent = currentNode.Parent;  // make the new connections
-                currentNode.Parent.RightChild = child;
+
+                if (currentNode == root)
+                {
+                    root = child;
+                }
+
+                // if leftchild
+                if(currentNode.IsLeftChild)
+                {
+                    parent.LeftChild = child;
+                }
+
+                // if rightchild
+                else
+                {
+                    parent.RightChild = child;
+                }
+
+                child.Parent = parent;
+
+                return true;
+    
             }
+
+        }
+
+
+        public bool Delete2(T value)
+        {
+            Node<T> currentNode = Search(value);
+            //2 children
+            var candidate = currentNode.LeftChild;
+            while(candidate.RightChild != null)
+            {
+                candidate = candidate.RightChild;
+            }
+            candidate.value = currentNode.value;
+            candidate.Parent = currentNode.Parent;
+
+            //No children
+            if(currentNode.LeftChild == null && currentNode.RightChild == null)
+            {
+                if (currentNode.value.Equals(root.value))
+                {
+                    root = null;
+                }
+
+                else if(currentNode.IsLeftChild)
+                {
+                    currentNode.Parent.LeftChild = null;
+                }
+
+                else
+                {
+                    currentNode.Parent.RightChild = null;
+                }
+            }
+
+            //1 child 
+            child = currentNode.LeftChild != null ? LeftChild : RightChild 
+            if(currentNode.child.IsLeftChild)
+            {
+                
+            }
+
 
             return false;
         }
-
         public Node<T> Search(T val)
         {
             Node<T> current = root;
