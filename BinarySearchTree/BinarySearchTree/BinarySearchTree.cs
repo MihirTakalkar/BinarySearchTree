@@ -79,7 +79,106 @@ namespace BinarySearchTree
 
         }
 
-        public bool Delete(T value)
+
+        public List<Node<T>> PreOrder()
+        {
+            List<Node<T>> preOrderList = new List<Node<T>>();
+            Stack<Node<T>> preOrderStack = new Stack<Node<T>>();
+            var currentNode = root;
+            preOrderStack.Push(root);
+            currentNode = currentNode.LeftChild;
+            while (preOrderStack.Count != 0) //while stack has values
+            {
+                currentNode = preOrderStack.Pop();
+                preOrderList.Add(currentNode);
+                if (currentNode.RightChild != null)
+                {
+                    preOrderStack.Push(currentNode.RightChild);
+
+                }
+
+                if (currentNode.LeftChild != null)
+                {
+                    preOrderStack.Push(currentNode.LeftChild);
+                }
+            }
+
+            return preOrderList;
+        }
+
+        public List<Node<T>> InOrder()
+        {
+            List<Node<T>> initial = PreOrder();
+            for (int i = 0; i < initial.Count; i++)
+            {
+                initial[i].visited = false;
+            }
+            List<Node<T>> inOrderList = new List<Node<T>>();
+            Stack<Node<T>> inOrderStack = new Stack<Node<T>>();
+            var currentNode = root;
+            inOrderStack.Push(root);
+
+            while (inOrderStack.Count != 0)
+            {
+                currentNode = inOrderStack.Pop();
+
+                if (currentNode.visited == false)
+                {
+                    currentNode.visited = true;
+                    if (currentNode.RightChild != null)
+                    {
+                        inOrderStack.Push(currentNode.RightChild);
+                    }
+
+                    inOrderStack.Push(currentNode);
+                    if (currentNode.LeftChild != null)
+                    {
+                        inOrderStack.Push(currentNode.LeftChild);
+                    }
+                }
+
+                else
+                {
+                    inOrderList.Add(currentNode);
+                }
+            }
+
+
+            return inOrderList;
+        }
+
+        public List<Node<T>> PostOrder()
+        {
+            List<Node<T>> initial = PreOrder();
+            for (int i = 0; i < initial.Count; i++)
+            {
+                initial[i].visited = false;
+            }
+            List<Node<T>> postOrderList = new List<Node<T>>();
+            Stack<Node<T>> postOrderStack = new Stack<Node<T>>();
+            var currentNode = root;
+            postOrderStack.Push(root);
+
+            while(postOrderStack.Count != 0)
+            {
+                currentNode = postOrderStack.Pop();
+                currentNode.visited = true;
+
+                if (currentNode.visited == false)
+                {
+                    postOrderStack.Push(currentNode);
+                    if(currentNode.RightChild != null)
+                    {
+                        postOrderStack.Push(currentNode.RightChild);
+                    }
+                }
+            }
+
+
+            return postOrderList;
+        }
+
+            public bool Delete(T value)
         {
             Node<T> currentNode = Search(value);
 
@@ -136,13 +235,14 @@ namespace BinarySearchTree
                 }
 
 
+
                 if (currentNode == root)
                 {
                     root = child;
                 }
 
                 // if leftchild
-                if(currentNode.IsLeftChild)
+                if (currentNode.IsLeftChild)
                 {
                     parent.LeftChild = child;
                 }
@@ -156,33 +256,43 @@ namespace BinarySearchTree
                 child.Parent = parent;
 
                 return true;
-    
+
             }
 
         }
 
-
         public bool Delete2(T value)
         {
             Node<T> currentNode = Search(value);
-            //2 children
-            var candidate = currentNode.LeftChild;
-            while(candidate.RightChild != null)
+            if (currentNode == null)
             {
-                candidate = candidate.RightChild;
+                return false;
             }
-            candidate.value = currentNode.value;
-            candidate.Parent = currentNode.Parent;
 
+            bool cases = false;
+
+            //2 children
+            //if it has both children
+            if (currentNode.LeftChild != null && currentNode.RightChild != null)
+            {
+                var candidate = currentNode.LeftChild;
+                while (candidate.RightChild != null)
+                {
+                    candidate = candidate.RightChild;
+                }
+                currentNode.value = candidate.value;
+                currentNode = candidate;
+                cases = true;
+            }
             //No children
-            if(currentNode.LeftChild == null && currentNode.RightChild == null)
+            if (currentNode.LeftChild == null && currentNode.RightChild == null)
             {
                 if (currentNode.value.Equals(root.value))
                 {
                     root = null;
                 }
 
-                else if(currentNode.IsLeftChild)
+                else if (currentNode.IsLeftChild)
                 {
                     currentNode.Parent.LeftChild = null;
                 }
@@ -191,17 +301,27 @@ namespace BinarySearchTree
                 {
                     currentNode.Parent.RightChild = null;
                 }
+                cases = true;
             }
 
             //1 child 
-            child = currentNode.LeftChild != null ? LeftChild : RightChild 
-            if(currentNode.child.IsLeftChild)
+            if (cases == false)
             {
-                
+                var child = currentNode.LeftChild != null ? currentNode.LeftChild : currentNode.RightChild;
+                if (currentNode.IsLeftChild)
+                {
+                    child.Parent = currentNode.Parent;
+                    currentNode.Parent.LeftChild = child;
+                }
+
+                else
+                {
+                    child.Parent = currentNode.Parent;
+                    currentNode.Parent.RightChild = child;
+                }
             }
 
-
-            return false;
+            return true;
         }
         public Node<T> Search(T val)
         {
@@ -246,7 +366,7 @@ namespace BinarySearchTree
         {
             Node<T> currentNode = node;
 
-            while(currentNode.RightChild != null)
+            while (currentNode.RightChild != null)
             {
                 currentNode = currentNode.RightChild;
             }

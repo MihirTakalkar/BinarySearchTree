@@ -16,10 +16,10 @@ namespace BinarySearchTree
             bst.Insert(6);
             bst.Insert(10);
             bst.Insert(4);
-            bst.Delete(2);
+            bst.Delete(3);
 
-            bst.PrintTree();
-
+            var result = bst.InOrder();
+            ;
 
         }
     }

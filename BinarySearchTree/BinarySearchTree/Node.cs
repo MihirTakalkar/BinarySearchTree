@@ -14,6 +14,8 @@ namespace BinarySearchTree
         
         public T value;
 
+        public bool visited;
+
         public bool IsRightChild
         {
             get
