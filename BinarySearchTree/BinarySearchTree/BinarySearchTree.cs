@@ -159,23 +159,59 @@ namespace BinarySearchTree
             var currentNode = root;
             postOrderStack.Push(root);
 
-            while(postOrderStack.Count != 0)
+            while (postOrderStack.Count != 0)
             {
                 currentNode = postOrderStack.Pop();
-                currentNode.visited = true;
 
                 if (currentNode.visited == false)
                 {
+                    currentNode.visited = true;
                     postOrderStack.Push(currentNode);
-                    if(currentNode.RightChild != null)
+                    if (currentNode.RightChild != null)
                     {
                         postOrderStack.Push(currentNode.RightChild);
                     }
+
+                    if (currentNode.LeftChild != null)
+                    {
+                        postOrderStack.Push(currentNode.LeftChild);
+                    }
+                }
+
+                else
+                {
+                    postOrderList.Add(currentNode);
+                }
+            }
+            return postOrderList;
+        }
+
+        public List<Node<T>> BFT()
+        {
+            List<Node<T>> bftList = new List<Node<T>>();
+            Queue<Node<T>> bftQueue = new Queue<Node<T>>();
+            bftQueue.Enqueue(root);
+            var currentNode = root;
+
+            while (bftQueue.Count != 0)
+            {
+                currentNode = bftQueue.Dequeue();
+                bftList.Add(currentNode);
+
+                if(currentNode.LeftChild != null)
+                {
+                    bftQueue.Enqueue(currentNode.LeftChild);
+                }
+
+                if (currentNode.RightChild != null)
+                {
+                    bftQueue.Enqueue(currentNode.RightChild);
                 }
             }
 
 
-            return postOrderList;
+
+            return bftList;
         }
 
             public bool Delete(T value)

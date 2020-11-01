@@ -16,9 +16,8 @@ namespace BinarySearchTree
             bst.Insert(6);
             bst.Insert(10);
             bst.Insert(4);
-            bst.Delete(3);
 
-            var result = bst.InOrder();
+            var result = bst.BFT();
             ;
 
         }
